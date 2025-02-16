@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,7 @@
       overflow: hidden;
       position: relative;
       color: white;
+      flex-direction: column;
     }
 
     h1 {
@@ -25,6 +26,7 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       animation: colorChange 3s infinite alternate, bounce 2s infinite;
       font-weight: bold;
+      text-align: center;
     }
 
     @keyframes bounce {
@@ -168,6 +170,51 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       animation: fadeIn 2s ease-out;
+      max-width: 90%; /* Ensures the message fits within the screen */
+      word-wrap: break-word;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3em; /* Smaller font size for smaller screens */
+      }
+
+      .btn {
+        font-size: 1.2em; /* Make button text smaller */
+        padding: 12px 24px;
+      }
+
+      .heart {
+        font-size: 5em; /* Adjust the heart size */
+      }
+
+      .message {
+        font-size: 2em; /* Slightly reduce the message font size */
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5em; /* Even smaller for very small screens */
+      }
+
+      .btn {
+        font-size: 1em; /* Further reduce the button font size */
+        padding: 10px 20px;
+      }
+
+      .heart {
+        font-size: 4em; /* Adjust the heart size */
+      }
+
+      .message {
+        font-size: 1.8em; /* Make the message font size smaller */
+      }
+
+      .loveMessage {
+        font-size: 1.5em; /* Adjust the love message font size */
+      }
     }
   </style>
 </head>
