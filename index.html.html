@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    /* Background Gradient */
+    body {
+      background: linear-gradient(135deg, #ff99cc, #ffccff);
+      font-family: 'Comic Sans MS', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+      color: white;
+    }
+
+    h1 {
+      font-size: 4em;
+      color: #ff4081;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      animation: colorChange 3s infinite alternate, bounce 2s infinite;
+      font-weight: bold;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes colorChange {
+      0% {
+        color: #ff4081;
+      }
+      50% {
+        color: #ff66b2;
+      }
+      100% {
+        color: #ff3399;
+      }
+    }
+
+    .heart {
+      position: absolute;
+      top: 20%;
+      font-size: 6em;
+      color: #ff4081;
+      animation: heart-animation 2s ease-in-out infinite;
+    }
+
+    @keyframes heart-animation {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    .message {
+      text-align: center;
+      color: #ff4081;
+      font-size: 2.5em;
+      margin-top: 20px;
+      animation: fadeIn 3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Confetti Animation */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4081;
+      animation: confetti-fall 3s infinite;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .btn {
+      margin-top: 50px;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background-color: #ff66b2;
+    }
+
+    .fireworks {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2em;
+      color: #ffccff;
+      animation: fireworks-animation 2s infinite;
+    }
+
+    @keyframes fireworks-animation {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Hidden love message */
+    .loveMessage {
+      display: none;
+      text-align: center;
+      color: #ff4081;
+      font-size: 1.8em;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff0f7;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart">&#10084;</div>
+  <div class="message">
+    <h1>Happy Birthday, My Love!</h1>
+  </div>
+
+  <button class="btn" onclick="triggerSurprise()">Click for a Surprise!</button>
+
+  <!-- Fireworks -->
+  <div class="fireworks" id="fireworks">✨🎉✨</div>
+
+  <!-- Confetti -->
+  <div class="confetti" style="left: 10%; animation-duration: 2s;"></div>
+  <div class="confetti" style="left: 30%; animation-duration: 3s;"></div>
+  <div class="confetti" style="left: 50%; animation-duration: 2.5s;"></div>
+  <div class="confetti" style="left: 70%; animation-duration: 3s;"></div>
+  <div class="confetti" style="left: 90%; animation-duration: 2s;"></div>
+
+  <!-- Love Message -->
+  <div class="loveMessage" id="loveMessage">
+    <p>heyy baby i just wanted to let you know how much i love you and i hope you have the greatest birthday possible but first i want you to know this, ever since the day we meet i had truly loved you and thought that you were a great person, every time i do something for you i do it purly from my heart because my feelings for you are pure and strong, i truly love you with all my heart and i trust you love me with yours and i truly hope that it could stay like that FOREVER.</p>
+
+    <p>You are my heart’s greatest treasure, i love every little thing about you – the way you care so deeply, the way you make everything feel so right. My love for you grows stronger with everyday and I can't imagine my life without you in it. I promise to always love you, support you, and be there for you, no matter what. You are my everything, and I am so lucky to call you mine. I know i say this a lot but, i love you, i love you, and I LOVE YOUUUU.</p>
+  </div>
+
+  <script>
+    // Create more confetti to fall
+    function generateConfetti() {
+      for (let i = 0; i < 20; i++) {
+        let confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}%`;  // Fixed this part
+        confetti.style.animationDuration = `${Math.random() * 2 + 1}s`;  // Fixed this part
+        document.body.appendChild(confetti);
+      }
+    }
+
+    // Trigger the surprise fireworks and show the love message
+    function triggerSurprise() {
+      const fireworks = document.getElementById('fireworks');
+      fireworks.style.display = 'block';
+      setTimeout(() => {
+        fireworks.style.display = 'none';
+      }, 3000);
+
+      generateConfetti();
+
+      const loveMessage = document.getElementById('loveMessage');
+      loveMessage.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
